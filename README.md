@@ -12,9 +12,9 @@ The API connecting all aspects of the Perlemir Algo-Bot application.
     - [ ] User Login
     - [ ] User Deletion
 - [ ] Bot Interface
-    - [ ] Profits Inquiry
+    - [ ] ~
 - [ ] Fabrication Interface
-    - [ ]
+    - [ ] ~
 
 ### Aspects
 
