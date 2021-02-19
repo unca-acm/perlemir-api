@@ -23,14 +23,18 @@ This API will accomodate multiple parts of the Perlemir Algo-Bot project. The cu
 
 ### Development
 
-Development has not begun yet. Document will be updated to reflect changes. All development of this API will be in Python, utilizing Flask.
+Development has begun in its initial stages. A basic layout has been setup in the files.
 
 #### Dependencies
 
 Make sure the following are installed:
 
 1. Python3
-
 2. flask-jwt-api
-
 3. bcrypt
+
+### Running the App
+The app.py file in the top level directory is the main file. Run app.py to open the Flask server on port 5000. After naviating to the directory the app.py file is in, run the following command:
+```bash
+python3 app.py
+```
