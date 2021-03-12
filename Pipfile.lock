@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2335f950be985280dd902bf22fee6f68246cfa2c6c7cc63fca12a7776f1f22d1"
+            "sha256": "2d5a261692646fae9e4ebdbb9d1f85c2eb81e94f8ffa42c47ea9fbb2137c1afb"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -202,6 +202,11 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==1.1.1"
+        },
+        "perlemirbot": {
+            "editable": true,
+            "git": "https://github.com/unca-acm/perlemirBot.git",
+            "ref": "1a7aa2a60ce4cd74b0ce21febc15345705817585"
         },
         "pycparser": {
             "hashes": [

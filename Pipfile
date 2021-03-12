@@ -9,7 +9,8 @@ flask_api = "*"
 flask_json = "*"
 jwt = "*"
 bcrypt = "*"
-uuid = "*"
+setuptools = "*"
+perlemirbot = {editable = true, ref = "pipenv-test", git = "https://github.com/unca-acm/perlemirBot.git"}
 
 [dev-packages]
 
