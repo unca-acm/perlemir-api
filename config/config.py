@@ -11,8 +11,10 @@ from flask import Flask, request, url_for, session, redirect, escape
 from flask_api import status
 from flask_json import json_response
 from datetime import datetime, timedelta
+import aux
 import bcrypt
 import jwt
+import json
 
 
 app = Flask(__name__)

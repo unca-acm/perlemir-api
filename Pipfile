@@ -5,7 +5,11 @@ name = "pypi"
 
 [packages]
 flask = "*"
+flask_api = "*"
+flask_json = "*"
+jwt = "*"
 bcrypt = "*"
+uuid = "*"
 
 [dev-packages]
 
