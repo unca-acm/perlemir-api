@@ -3,8 +3,8 @@
     for the application and will pose calls to the proper
     functions for each URL.
 """
-from config import config
-from user import user_fun
+from perlemir_api.config import config
+from perlemir_api.user import user_fun
 import json
 
 if config.DEBUG:
