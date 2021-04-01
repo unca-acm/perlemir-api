@@ -5,6 +5,7 @@
 """
 from perlemir_api.config import config
 from perlemir_api.user import user_fun
+from perlemir_api.bot import bot_fun
 import json
 
 if config.DEBUG:
@@ -16,92 +17,64 @@ app.secret_key = 'ACM_PERLEMIR_TEST'
 
 
 #*********************************************************
-#                       ENDPOINTS
+#                      USER ENDPOINTS
 #*********************************************************
 
-#This function returns a token that will be used to encrypt the password sent in.
-@app.route('/user_get_nonce', methods=['POST'])
-def user_get_once():
-    try:
-        payload = {
-            'exp': config.datetime.utcnow() + config.timedelta(seconds=150),
-            'iat': config.datetime.utcnow()
-        }
 
-        return config.jwt.encode(payload, config.JWT_SECRET, config.JWT_ALGORITHM), config.status.HTTP_200_OK
-    except Exception as e:
-        return e, config.status.HTTP_500_INTERNAL_SERVER_ERROR
+@app.route('/api/v1/user/user_get_nonce', methods=['GET'])
+def user_get_nonce():
+    return user_fun.nonce(config.request)
 
 
-"""
-    The user_login endpoint takes in json data and checks for a nonce, if the nonce
-    is valid, it p
-"""
-@app.route('/user_login', methods=['POST'])
+@app.route('/api/v1/user/user_login', methods=['POST'])
 def user_login():
+    return user_fun.login(config.request)
 
-    #take in the request information
-    data = config.request.get_json()
-
-    #check if the user has a valid nonce token
-    try:
-        nonce = config.jwt.decode(data['nonce'], config.JWT_SECRET, config.JWT_ALGORITHM)
-    except Exception as e:
-        print("NONCE EXPIRED")
-        return {'message' : 'Request timed out. Please reload page!'}, 408
-
-
-
-    #IF the user exists, check the password
-    if user_fun.checkUID(data['uid']):
-        print("Username " + data['uid'] + " matches")
-
-        #check the user's password
-        if user_fun.checkPWD(data['pwd']):
-            print("Password for user " + data['uid'] + " matches")
-        else:
-            print("Password for user " + data['uid'] + " does not match")
-            return { 'message' : 'Password incorrect'}, 403
-    else:
-        print("Username " + data['uid'] + " does not match")
-        return { 'message' : 'Username incorrect!'}, 404
-
-    payload = {
-        'uid': data['uid'],
-        'exp': config.datetime.utcnow() + config.timedelta(seconds=1200)
-    }
-
-    jwt_token = config.jwt.encode(payload, config.JWT_SECRET, config.JWT_ALGORITHM)
-
-    retJSON = {
-        'uid' : data['uid'],
-        'token' : jwt_token        
-    }
-
-    #The last step of a successful login is creating a session.
-    config.session['uid'] = data['uid']
-    
-    if config.DEBUG:
-        print("session created with username: " + config.session['uid'])
-
-    return retJSON, config.status.HTTP_200_OK
-
-@app.route('/user_logout', methods=['POST'])
+@app.route('/api/v1/user/user_logout', methods=['POST'])
 def user_logout():
     config.session.pop('uid', None)
     return redirect(url_for('index'))
 
-@app.route('/user_get_settings', methods=['POST'])
+@app.route('/api/v1/user/user_get_settings', methods=['POST'])
 def user_get_settings():
     return "d"
 
-@app.route('/user_change_settings', methods=['POST'])
+@app.route('/api/v1/user/user_change_settings', methods=['POST'])
 def user_change_settings():
     return "d"
 
-@app.route('/get_price', methods=['POST'])
-def get_price():
-    return "d"
+#*********************************************************
+#                      BOT ENDPOINTS
+#*********************************************************
+
+@app.route('/api/v1/bot', methods=['GET'])
+def get_bots(): 
+    return bot_fun.get_bots()
+
+@app.route('/api/v1/bot', methods=['POST'])
+def create_bot():
+    return bot_fun.create_bot(config.request)
+
+@app.route('/api/v1/bot/<id>', methods=['GET'])
+def get_bot(id):
+    return bot_fun.get_bot(id)
+
+# @app.route('/api/v1/bot/<id>/get_settings', methods=['GET'])
+# def get_settings(id):
+#     return bot_fun.get_settings(config.request)
+
+
+
+#*********************************************************
+#                      TEST ENDPOINT
+#*********************************************************
+@app.route('/api/v1/generate_key', methods=['POST'])
+def test(): 
+    return config.aux.respond_generate_key('ladair', 'pwd', 'basic')
+
+@app.route('/api/v1/validate_key', methods=['POST'])
+def fun(): 
+    return config.aux.validate_key(config.request)
 
 #run the program
 if __name__ == '__main__':

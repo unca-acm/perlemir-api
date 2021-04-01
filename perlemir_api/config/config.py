@@ -9,8 +9,10 @@
 
 from flask import Flask, request, url_for, session, redirect, escape
 from datetime import datetime, timedelta
+import aux
 import bcrypt
 import jwt
+import json
 
 
 app = Flask(__name__)

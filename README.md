@@ -10,9 +10,17 @@ The API connecting all aspects of the Perlemir Algo-Bot application.
 - [ ] Web Aspects
     - [ ] User Creation
     - [ ] User Login
+    - [ ] User Logout
+    - [ ] User Modification
     - [ ] User Deletion
 - [ ] Bot Interface
-    - [ ] ~
+    - [ ] Bot Creation
+    - [ ] Bot Modification
+    - [ ] Bot Start
+    - [ ] Bot Pause
+    - [ ] Bot Deletion
+    - [ ] Bot Query
+    - [ ] Bot Summary
 - [ ] Fabrication Interface
     - [ ] ~
 
