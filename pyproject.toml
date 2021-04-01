@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "perlemir-api"
+version = "0.1.0"
+description = "The API connecting all aspects of the Perlemir Algo-Bot application."
+authors = ["Lane Adair <ladair@unca.edu>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Flask = "^1.1.2"
+bcrypt = "^3.2.0"
+Flask-JWT = "^0.3.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
