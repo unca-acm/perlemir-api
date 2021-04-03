@@ -11,7 +11,8 @@ import {
     DrawerHeader,
     FormControl,
     FormLabel,
-    Select
+    Select,
+    Box,
 } from "@chakra-ui/react";
 
 import { BotInstance, BotStrategy } from "./BotInstance";
@@ -86,12 +87,20 @@ const BotControlPanel: React.FC<BotControlPanelProps> = function(props) {
     };
 
     return (
-        <div>
-            <ButtonGroup w="100%" variant="solid" colorScheme="perlemirAccent">
-                <Button ref={buttonHandle} onClick={onOpen}>
+        <Box w="100%"
+            bg="perlemirBrand.100"
+            overflow="hidden"
+        >
+            <ButtonGroup w="100%" colorScheme="perlemirSecondary">
+                <Button
+                    ref={buttonHandle}
+                    borderRadius="inherit 0 0 0"
+                    variant="ghost"
+                    bg="perlemirSecondary.200"
+                    onClick={onOpen}
+                >
                     Create
                 </Button>
-                <Button colorScheme="red">Delete</Button>
             </ButtonGroup>
 
             <Drawer size="md"
@@ -111,7 +120,7 @@ const BotControlPanel: React.FC<BotControlPanelProps> = function(props) {
                     </DrawerContent>
                 </DrawerOverlay>
             </Drawer>
-        </div>
+        </Box>
     );
 };
 

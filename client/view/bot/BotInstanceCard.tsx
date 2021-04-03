@@ -47,6 +47,7 @@ const StatusButton: React.FC<StatusButtonProps> = function(props) {
 
     return (
         <Button size="sm" 
+            style={{ alignContent: "center" }}
             colorScheme={color}
             onClick={() => props.onSelect(toggleStatus(props.status))}>
             {props.children}
