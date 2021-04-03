@@ -9,7 +9,7 @@ module.exports = {
         view: '/',
     },
     plugins: [
-        ['@snowpack/plugin-typescript', {'args': '--project tsconfig.view.json'}]
+        ['@snowpack/plugin-typescript', {'args': '--project tsconfig.json'}]
     ],
     packageOptions: {
         rollup: {

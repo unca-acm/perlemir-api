@@ -5,11 +5,9 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "snowpack dev",
-    "start:lib": "tsc-watch --onSuccess \"node dist/app.js\"",
-    "build": "tsc && snowpack build",
-    "lint": "eslint --fix --ext .ts,.js ./{src,view}",
-    "clean": "rm -rf node_modules/ dist/ public/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "snowpack build",
+    "lint": "eslint --fix --ext .ts,.js ./view",
+    "clean": "rm -rf node_modules/ dist/ public/"
   },
   "author": "ACM: UNCA Chapter",
   "license": "MIT",

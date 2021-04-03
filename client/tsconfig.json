@@ -10,6 +10,7 @@
         "module": "ES6",
         "jsx": "react-jsx",
         "baseUrl": "./view",
+        "noEmit": true,
         "moduleResolution": "Node",
         "allowSyntheticDefaultImports": true,
         "watch": false,
