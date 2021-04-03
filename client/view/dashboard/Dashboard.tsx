@@ -12,17 +12,15 @@ interface DashboardProps {
 
 const Dashboard: React.FC<DashboardProps> = function(props) {
     const [ botInstances, setBotInstances ] = React.useState<{ [id: string]: BotInstance<unknown> }>({});
+    console.log(botInstances);
 
     return (
-        <Grid backgroundColor="white" id="app-grid" templateColumns="60% 40%">
+        <Grid backgroundColor="white" id="app-grid" templateColumns="50%">
             <Box w="100%" p={0}
                 display="flex"
                 flexFlow="column"
-                borderWidth="2px"
-                borderColor="perlemirBrand.100"
                 overflow="hidden"
                 minHeight="400px"
-                maxHeight="600px"
                 borderRadius="20px 20px 0 0"
             >
                 <Box flex="0 1 auto">

@@ -91,12 +91,11 @@ const BotControlPanel: React.FC<BotControlPanelProps> = function(props) {
             bg="perlemirBrand.100"
             overflow="hidden"
         >
-            <ButtonGroup w="100%" colorScheme="perlemirSecondary">
+            <ButtonGroup w="100%" colorScheme="perlemirBrand">
                 <Button
                     ref={buttonHandle}
                     borderRadius="inherit 0 0 0"
                     variant="ghost"
-                    bg="perlemirSecondary.200"
                     onClick={onOpen}
                 >
                     Create

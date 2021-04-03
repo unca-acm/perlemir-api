@@ -76,7 +76,7 @@ export const withInstanceCard = function<T>(
     return function({ dispatch, ...props }) {
         return (
             <Box className="bot-card" bg="perlemirBrand.200">
-                <CardHeader name={botTypeName} currency={props.instance.currency} />
+                <CardHeader name={props.instance.name} currency={props.instance.currency} />
                 <Divider orientation="horizontal" />
                 <div className="bot-card-interface-group">
                     <div className="bot-card-interface align-left">
