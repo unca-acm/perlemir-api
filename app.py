@@ -33,7 +33,7 @@ def user_login():
 @app.route('/api/v1/user/user_logout', methods=['POST'])
 def user_logout():
     config.session.pop('uid', None)
-    return redirect(url_for('index'))
+    return config.redirect(config.url_for('index'))
 
 @app.route('/api/v1/user/user_get_settings', methods=['POST'])
 def user_get_settings():
@@ -70,11 +70,11 @@ def get_bot(id):
 #*********************************************************
 @app.route('/api/v1/generate_key', methods=['POST'])
 def test(): 
-    return config.aux.respond_generate_key('ladair', 'pwd', 'basic')
+    return config.util.respond_generate_key('ladair', 'pwd', 'basic')
 
 @app.route('/api/v1/validate_key', methods=['POST'])
 def fun(): 
-    return config.aux.validate_key(config.request)
+    return config.util.validate_key(config.request)
 
 #run the program
 if __name__ == '__main__':
